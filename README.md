@@ -21,4 +21,4 @@
 * активация лайков для фотографий.
 
 
-* [Ссылка на проект на GHP](https://ragna-a4.github.io/mesto/)
+[Ссылка на проект на GHP](https://ragna-a4.github.io/mesto/)
