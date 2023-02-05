@@ -5,9 +5,10 @@
     margin: 0 auto 0 0;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1060px) {
     .header__logo {
         min-width: 32.4%;
+        max-width: 104px;
         margin-left: 27px;
     }
 }

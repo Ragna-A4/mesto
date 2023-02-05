@@ -1,0 +1,8 @@
+.card__description {
+    max-width: 246px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 22px 18px 26px;
+    padding: 0;
+}
