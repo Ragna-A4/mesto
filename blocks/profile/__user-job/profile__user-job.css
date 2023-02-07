@@ -1,5 +1,5 @@
 .profile__user-job {
-    line-height: auto;
+    line-height: 21.78px;
     font-size: 18px;
     font-weight: 400;
     color: #fff;
@@ -9,6 +9,7 @@
 
 @media screen and (max-width: 1060px) {
     .profile__user-job {
+        line-height: 16.94px;
         font-size: 14px;
         margin-left: 42px;
     }

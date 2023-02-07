@@ -1,6 +1,6 @@
 .footer__copyright {
     color: #545454;
-    line-height: auto;
+    line-height: 21.78px;
     font-size: 18px;
     font-weight: 400;
     text-align: start;
@@ -10,6 +10,7 @@
 
 @media screen and (max-width: 1060px) {
     .footer__copyright {
+        line-height: 16.94px;
         font-size: 14px;
     }
 }
