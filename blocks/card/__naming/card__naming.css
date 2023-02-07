@@ -1,8 +1,9 @@
 .card__naming {
     max-width: 90%;
+    line-height: 29.05px;
     font-size: 24px;
     font-weight: 900;
-    line-height: 29.05;
     color: #000;
     margin: 0;
+    padding: 0;
 }

@@ -3,6 +3,7 @@
     background-color: #000;
     border: none;
     outline: 2px solid #fff;
+    border-radius: 2px;
     margin: 36px 0 36px auto;
     padding: 0;
     cursor: pointer;
