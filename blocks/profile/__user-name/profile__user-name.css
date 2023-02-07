@@ -6,6 +6,7 @@
     padding: 0;
     margin: 0;
     align-self: flex-end;
+    max-width: 294px;
 }
 
 @media screen and (max-width: 1060px) {
@@ -13,5 +14,12 @@
         line-height: 33px;
         font-size: 27px;
         margin-left: 26px;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .profile__user-name {
+        max-width: 189px;
     }
 }
