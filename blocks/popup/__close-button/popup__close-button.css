@@ -4,10 +4,10 @@
     right: -40px;
     width: 32px;
     height: 32px;
-    object-fit: contain;
     background-color: transparent;
     border: none;
     background-image: url(../../../images/close.svg);
+    background-size: contain;
     cursor: pointer;
     padding: 0;
 }
@@ -23,6 +23,5 @@
         right: 0;
         width: 20px;
         height: 20px;
-        background-image: url(../../../images/close.svg);
-    }
+}
 }

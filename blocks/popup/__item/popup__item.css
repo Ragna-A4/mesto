@@ -1,4 +1,4 @@
-.popup__name {
+.popup__item {
     width: 100%;
     max-width: 358px;
     line-height: 17px;
@@ -7,12 +7,12 @@
     color: #000;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    margin: 0 auto 30px;
-    padding: 0 0 12px;
+    margin: 0 auto;
+    padding: 0 0 10px;
 }
 
 @media screen and (max-width: 1060px) {
-    .popup__name {
+    .popup__item {
         max-width: 238px;
     }
 }
