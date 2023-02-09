@@ -4,7 +4,7 @@
     flex-direction: column;
     border-radius: 10px;
     background-color: #fff;
-    box-shadow: 0 0 25 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.15);
     align-items: center;
     align-content: center;
     max-width: 430px;

@@ -1,4 +1,5 @@
 .profile__user-name {
+    grid-area: name;
     line-height: 48px;
     font-size: 42px;
     font-weight: 500;
