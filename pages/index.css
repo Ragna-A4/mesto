@@ -17,8 +17,10 @@
 @import url(../blocks/card/__image/card__image.css);
 @import url(../blocks/card/__description/card__description.css);
 @import url(../blocks/card/__naming/card__naming.css);
-@import url(../blocks/card/__like-button/card__like-button.css);
-@import url(../blocks/card/__like-button/_active/card__like-button_active.css);
+@import url(../blocks/card-button/card-button.css);
+@import url(../blocks/card-button/__trash/card-button__trash.css);
+@import url(../blocks/card-button/__like/card-button__like.css);
+@import url(../blocks/card-button/__like/_active/card-button__like_active.css);
 @import url(../blocks/text-overflow/text-overflow.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
