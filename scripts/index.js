@@ -39,7 +39,7 @@ const getCardElement = (element) => {
     const cardButtonTrash = newCardElement.querySelector('.card-button__trash');
     const cardButtonLike = newCardElement.querySelector('.card-button__like');
     cardButtonTrash.addEventListener('click', function(evt) {
-        evt.target.closest('card').remove();
+        evt.target.closest('.card').remove()
     });
     cardButtonLike.addEventListener('click', function(evt) {
         evt.target.classList.toggle('card-button__like_active')
@@ -49,6 +49,14 @@ const getCardElement = (element) => {
     newImagePopupPicture.alt = element.name;
     const newImagePopupNaming = newCardElement.querySelector('.image-popup__naming');
     newImagePopupNaming.textContent = element.name;
+    const newImagePopup = newCardElement.querySelector('.image-popup');
+    newCardImage.addEventListener('click', function() {
+        newImagePopup.classList.add('image-popup_opened')
+    });
+    const closeNewImagePopupButton = newCardElement.querySelector('.popup__close-button');
+    closeNewImagePopupButton.addEventListener('click', function() {
+        newImagePopup.classList.remove('image-popup_opened')
+    });
     return newCardElement;
 }
 
@@ -62,21 +70,6 @@ initialCards.forEach((element) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-const cardImage = document.querySelector('.card__image');
-const imagePopup = document.querySelector('.image-popup');
-
 const popup = document.querySelector('.popup');
 const editButton = document.querySelector('.profile__edit-button');
 const closeButton = popup.querySelector('.popup__close-button');
@@ -85,10 +78,6 @@ const nameInput = popup.querySelector('.popup__item_el_name');
 const jobInput = popup.querySelector('.popup__item_el_job');
 const nameProfile = document.querySelector('.profile__user-name');
 const jobProfile = document.querySelector('.profile__user-job');
-
-const handleCardImageClick = () => {
-    imagePopup.classList.add('image-popup_opened');
-}
 
 const handleEditButtonClick = () => {
     popup.classList.add('popup_opened');
@@ -100,9 +89,6 @@ const closePopup = () => {
     popup.classList.remove('popup_opened');
 }
 
-const closeImagePopup = () => {
-    imagePopup.classList.remove('image-popup_opened');
-}
 
 const handleCloseButtonClick = () => { 
     closeImagePopup();
@@ -118,4 +104,3 @@ const handleFormSubmit = (evt) => {
 editButton.addEventListener('click', handleEditButtonClick);
 closeButton.addEventListener('click', handleCloseButtonClick);
 formElement.addEventListener('submit', handleFormSubmit);
-cardImage.addEventListener('click', handleCardImageClick);
