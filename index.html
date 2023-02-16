@@ -23,112 +23,47 @@
             <button class="profile__add-button buttons-hover" type="button"></button>
         </section>
         <section class="gallery">
-          <div class="card">
-            <img class="card__image" src="./images/beach.jpg" alt="пляж">
-            <div class="image-popup">
-              <div class="image-popup__container">
-                <button class="popup__close-button buttons-hover" type="button"></button>
-                <img class="image-popup__picture" src="./images/beach.jpg" alt ="пляж">
-                <h3 class="image-popup__naming">Пляж</h3>
-              </div>
-            </div>
-            <button class="card-button card-button__trash buttons-hover" type="button"></button>
-            <div class="card__description"> 
-              <h2 class="card__naming text-overflow">Пляж</h2>
-              <button class="card-button card-button__like buttons-hover buttons-hover_type_like" type="button"></button>
-            </div>
-          </div>  
-          <div class="card">
-            <img class="card__image" src="./images/corals.jpg" alt="кораллы">
-            <div class="image-popup">
-              <div class="image-popup__container">
-                <button class="popup__close-button buttons-hover" type="button"></button>
-                <img class="image-popup__picture" src="./images/corals.jpg" alt ="кораллы">
-                <h3 class="image-popup__naming">Кораллы</h3>
-              </div>
-            </div>
-            <button class="card-button card-button__trash buttons-hover" type="button"></button>
-            <div class="card__description">    
-              <h2 class="card__naming text-overflow">Кораллы</h2>
-              <button class="card-button card-button__like buttons-hover buttons-hover_type_like" type="button"></button>
-            </div>
-          </div> 
-          <div class="card">
-            <img class="card__image" src="./images/island.jpg" alt="остров">
-            <div class="image-popup">
-              <div class="image-popup__container">
-                <button class="popup__close-button buttons-hover" type="button"></button>
-                <img class="image-popup__picture" src="./images/island.jpg" alt ="остров">
-                <h3 class="image-popup__naming">Остров</h3>
-              </div>
-            </div>
-            <button class="card-button card-button__trash buttons-hover" type="button"></button>
-            <div class="card__description">
-              <h2 class="card__naming text-overflow">Остров</h2>
-              <button class="card-button card-button__like buttons-hover buttons-hover_type_like" type="button"></button>
-            </div>
-          </div> 
-          <div class="card">
-            <img class="card__image" src="./images/jellyfish.jpg" alt="медуза">
-            <div class="image-popup">
-              <div class="image-popup__container">
-                <button class="popup__close-button buttons-hover" type="button"></button>
-                <img class="image-popup__picture" src="./images/jellyfish.jpg" alt ="медуза">
-                <h3 class="image-popup__naming">Медуза</h3>
-              </div>
-            </div>
-            <button class="card-button card-button__trash buttons-hover" type="button"></button>
-            <div class="card__description"> 
-              <h2 class="card__naming text-overflow">Медуза</h2>
-              <button class="card-button card-button__like buttons-hover buttons-hover_type_like" type="button"></button>
-            </div>
-          </div> 
-          <div class="card">
-            <img class="card__image" src="./images/sunset.jpg" alt="закат">
-            <div class="image-popup">
-              <div class="image-popup__container">
-                <button class="popup__close-button buttons-hover" type="button"></button>
-                <img class="image-popup__picture" src="./images/sunset.jpg" alt ="закат">
-                <h3 class="image-popup__naming">Закат</h3>
-              </div>
-            </div>
-            <button class="card-button card-button__trash buttons-hover" type="button"></button>
-            <div class="card__description">   
-              <h2 class="card__naming text-overflow">Закат</h2>
-              <button class="card-button card-button__like buttons-hover buttons-hover_type_like" type="button"></button>
-            </div>
-          </div> 
-          <div class="card">
-            <img class="card__image" src="./images/fin_whale.jpg" alt="кит">
-            <div class="image-popup">
-              <div class="image-popup__container">
-                <button class="popup__close-button buttons-hover" type="button"></button>
-                <img class="image-popup__picture" src="./images/fin_whale.jpg" alt ="кит">
-                <h3 class="image-popup__naming">Кашалот</h3>
-              </div>
-            </div>
-            <button class="card-button card-button__trash buttons-hover" type="button"></button>
-            <div class="card__description">
-                <h2 class="card__naming text-overflow">Кашалот</h2>
-                <button class="card-button card-button__like buttons-hover buttons-hover_type_like" type="button"></button>
-            </div>
-          </div> 
         </section>
         <section class="popup">
           <div class="popup__container">
             <button class="popup__close-button buttons-hover" type="button"></button>
-            <h3 class="popup__title">Редактировать профиль</h3>
-            <form class="popup__form" name="profile">
+        <!--      <form class="popup__form" name="profile">
+              <h3 class="popup__title">Редактировать профиль</h3>
               <input type="text" placeholder="Жак-Ив Кусто" class="popup__item popup__item_el_name">
               <input type="text" placeholder="Исследователь океана" class="popup__item popup__item_el_job">
               <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Сохранить</button>
-            </form>
+            </form> -->
           </div>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
+  <template id="form">
+    <form class="popup__form" name="profile">
+      <h3 class="popup__title"></h3>
+      <input type="text" placeholder="Ваше имя" class="popup__item popup__item_el_name">
+      <input type="text" placeholder="Чем Вы занимаетесь" class="popup__item popup__item_el_job">
+      <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit"></button>
+    </form>
+  </template>
+  <template id="card">
+    <div class="card">
+      <img class="card__image" src="./images/beach.jpg" alt="пляж">
+      <div class="image-popup">
+        <div class="image-popup__container">
+          <button class="popup__close-button buttons-hover" type="button"></button>
+          <img class="image-popup__picture" src="./images/beach.jpg" alt ="пляж">
+          <h3 class="image-popup__naming">Пляж</h3>
+        </div>
+      </div>
+      <button class="card-button card-button__trash buttons-hover" type="button"></button>
+      <div class="card__description"> 
+        <h2 class="card__naming text-overflow">Пляж</h2>
+        <button class="card-button card-button__like buttons-hover buttons-hover_type_like" type="button"></button>
+      </div>
+    </div>  
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
