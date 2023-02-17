@@ -24,35 +24,38 @@
         </section>
         <section class="gallery">
         </section>
-        <section class="popup">
+        <section class="popup popup_type_profile-edit">
           <div class="popup__container">
-            <button class="popup__close-button buttons-hover" type="button"></button>
-        <!--      <form class="popup__form" name="profile">
+            <button class="popup__close-button buttons-hover popup__close-button_form_profile" type="button"></button>
+              <form class="popup__form popup__form_type_profile" name="profile">
               <h3 class="popup__title">Редактировать профиль</h3>
-              <input type="text" placeholder="Жак-Ив Кусто" class="popup__item popup__item_el_name">
-              <input type="text" placeholder="Исследователь океана" class="popup__item popup__item_el_job">
+              <input type="text" placeholder="Ваше имя" class="popup__item popup__item_el_name">
+              <input type="text" placeholder="Чем Вы занимаетесь" class="popup__item popup__item_el_job">
               <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Сохранить</button>
-            </form> -->
+            </form>
+          </div>
+        </section>
+        <section class="popup popup_type_gallery-add">
+          <div class="popup__container">
+            <button class="popup__close-button buttons-hover popup__close-button_form_gallery" type="button"></button>
+              <form class="popup__form popup__form_type_gallery" name="gallery">
+              <h3 class="popup__title">Новое место</h3>
+              <input type="text" placeholder="Название" class="popup__item popup__item_el_place">
+              <input type="text" placeholder="Ссылка на картинку" class="popup__item popup__item_el_link">
+              <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Создать</button>
+            </form>
           </div>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-  <template id="form">
-    <form class="popup__form" name="profile">
-      <h3 class="popup__title"></h3>
-      <input type="text" placeholder="Ваше имя" class="popup__item popup__item_el_name">
-      <input type="text" placeholder="Чем Вы занимаетесь" class="popup__item popup__item_el_job">
-      <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit"></button>
-    </form>
-  </template>
   <template id="card">
     <div class="card">
       <img class="card__image" src="./images/beach.jpg" alt="пляж">
       <div class="image-popup">
         <div class="image-popup__container">
-          <button class="popup__close-button buttons-hover" type="button"></button>
+          <button class="popup__close-button buttons-hover popup__close-button_form_image" type="button"></button>
           <img class="image-popup__picture" src="./images/beach.jpg" alt ="пляж">
           <h3 class="image-popup__naming">Пляж</h3>
         </div>
