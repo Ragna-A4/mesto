@@ -89,7 +89,7 @@ const handleEditButtonClick = () => {
 }
 
 const closeProfilePopup =() => {
-    popupProfileEdit.classList.remove('popup_opened')
+    popupProfileEdit.classList.remove('popup_opened');
 }
 
 const handleProfileCloseButtonClick = () => {
