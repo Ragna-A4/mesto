@@ -32,8 +32,6 @@ const editButton = document.querySelector('.profile__edit-button');
 const popupProfileEdit = document.querySelector('.popup_type_profile-edit');
 const addButton = document.querySelector('.profile__add-button')
 const popupGalleryAdd = document.querySelector('.popup_type_gallery-add');
-const closeProfileButton = document.querySelector('.close-button_form_profile');
-const closeGalleryButton = document.querySelector('.close-button_form_gallery');
 const profileFormElement = document.querySelector('.popup__form_type_profile');
 const nameInput = popupProfileEdit.querySelector('.popup__item_el_name');
 const jobInput = popupProfileEdit.querySelector('.popup__item_el_job');
@@ -46,24 +44,30 @@ const cardImage = document.querySelector('.card__image');
 const imagePopup = document.querySelector('.image-popup');
 const imagePopupPicture = imagePopup.querySelector('.image-popup__picture');
 const imagePopupNaming = imagePopup.querySelector('.image-popup__naming');
-const closeImagePopupButton = imagePopup.querySelector('.close-button_form_image');    
+const closeButtons = document.querySelectorAll('.close-button');                      
+
+//функция открытия попапа
+const openPopup = (popup) => {
+    popup.classList.add('popup_opened');
+}
+
+//функция закрытия попапа
+const closePopup = (popup) => {
+    popup.classList.remove('popup_opened');
+}
+
+//закрытие попапа через "х"
+closeButtons.forEach((button) => {
+    const popup = button.closest('.popup');
+    button.addEventListener('click', () => closePopup(popup));
+});
 
 //функция открытия формы редактирования профиля
 //инпуты формы заполнены текущими данными профиля
 const handleEditButtonClick = () => {
-    popupProfileEdit.classList.add('popup_opened');
+    openPopup(popupProfileEdit);
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
-}
-
-//функция закрытия формы редактирования профиля
-const closeProfilePopup =() => {
-    popupProfileEdit.classList.remove('popup_opened');
-}
-
-//функция закрытия формы редактирования профиля по кнопке ('х')
-const handleProfileCloseButtonClick = () => {
-    closeProfilePopup()
 }
 
 //функция редактирования данных профиля из формы
@@ -71,45 +75,29 @@ const handleProfileFormSubmit = (evt) => {
     evt.preventDefault();
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
-    closeProfilePopup();
+    closePopup(popupProfileEdit);
 }
 
 //кнопки управления формой редактирования данных профиля
 editButton.addEventListener('click', handleEditButtonClick);
-closeProfileButton.addEventListener('click', handleProfileCloseButtonClick);
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 
 //функция открытия формы добавления карточек в галерею
 const handleAddButtonClick = () => {
-    popupGalleryAdd.classList.add('popup_opened')
-}
-
-//функция закрытия формы добавления карточек в галерею
-const closeGalleryPopup = () => {
-    popupGalleryAdd.classList.remove('popup_opened')
-}
-
-//функция закрытия формы редактирования профиля по кнопке ('х')
-const handleGalleryCloseButtonClick = () => {
-    closeGalleryPopup()
+    openPopup(popupGalleryAdd);
 }
 
 //кнопки управления формой добавления карточек в галерею
 addButton.addEventListener('click', handleAddButtonClick);
-closeGalleryButton.addEventListener('click', handleGalleryCloseButtonClick);
 //при добавлении новой карточки проверяем, что значения не пустые
-//если новая карточка добавлена, удаляем карточку, ставшую 7-ой
 //закрываем попап
 galleryFormElement.addEventListener('submit', (evt) => {
     evt.preventDefault();
     if (placeNameInput.value !== '' & placeLinkInput !== '') {
-    getCardElement(placeNameInput.value, placeLinkInput.value);
     renderCard(gallery, placeNameInput.value, placeLinkInput.value);
-    cards[6].remove();
     }
-    placeNameInput.value ='';
-    placeLinkInput.value ='';
-    closeGalleryPopup();
+    evt.target.reset();
+    closePopup(popupGalleryAdd);
 });
 
 //функция удаления карточки
@@ -130,7 +118,7 @@ const handleImageClick = (evt) => {
     imagePopupPicture.src = thisImage.src;
     imagePopupPicture.alt = thisImage.alt;
     imagePopupNaming.textContent = thisNaming.textContent;
-    imagePopup.classList.add('image-popup_opened');
+    openPopup(imagePopup);
     console.log(imagePopupNaming.textContent);
 }
 
@@ -142,8 +130,6 @@ const getCardElement = (placeName, placeLink) => {
     newCardImage.alt = placeName;
     const newCardNaming = newCardElement.querySelector('.card__naming');
     newCardNaming.textContent = placeName;
-    const cardButtonTrash = newCardElement.querySelector('.card-button__trash');
-    const cardButtonLike = newCardElement.querySelector('.card-button__like');
     return newCardElement;
 }
 
@@ -168,11 +154,3 @@ gallery.addEventListener('click', (evt) => {
         handleImageClick(evt);
     } 
 });
-
-//функция закрытия попапа изображения
-const closeImagePopup = () => {
-    imagePopup.classList.remove('image-popup_opened');
-}
-
-//функция закрытия формы попапа изображения по кнопке ('х')
-closeImagePopupButton.addEventListener('click', closeImagePopup);
