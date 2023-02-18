@@ -32,8 +32,8 @@ const editButton = document.querySelector('.profile__edit-button');
 const popupProfileEdit = document.querySelector('.popup_type_profile-edit');
 const addButton = document.querySelector('.profile__add-button')
 const popupGalleryAdd = document.querySelector('.popup_type_gallery-add');
-const closeProfileButton = document.querySelector('.popup__close-button_form_profile');
-const closeGalleryButton = document.querySelector('.popup__close-button_form_gallery');
+const closeProfileButton = document.querySelector('.close-button_form_profile');
+const closeGalleryButton = document.querySelector('.close-button_form_gallery');
 const profileFormElement = document.querySelector('.popup__form_type_profile');
 const nameInput = popupProfileEdit.querySelector('.popup__item_el_name');
 const jobInput = popupProfileEdit.querySelector('.popup__item_el_job');
@@ -46,7 +46,7 @@ const cardImage = document.querySelector('.card__image');
 const imagePopup = document.querySelector('.image-popup');
 const imagePopupPicture = imagePopup.querySelector('.image-popup__picture');
 const imagePopupNaming = imagePopup.querySelector('.image-popup__naming');
-const closeImagePopupButton = imagePopup.querySelector('.popup__close-button_form_image');    
+const closeImagePopupButton = imagePopup.querySelector('.close-button_form_image');    
 
 //функция открытия формы редактирования профиля
 //инпуты формы заполнены текущими данными профиля
