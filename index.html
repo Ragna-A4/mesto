@@ -30,6 +30,7 @@
               <form class="popup__form popup__form_type_profile" name="profile">
               <h3 class="popup__title">Редактировать профиль</h3>
               <input
+              id="input-name"
               required
               minlength="2"
               maxlength="40"
@@ -37,8 +38,9 @@
               placeholder="Ваше имя" 
               class="popup__item popup__item_el_name"
               >
-              <span class="popup__error-message"></span>
+              <span id="input-name-err" class="popup__error-message"></span>
               <input
+              id="input-job"
               required
               minlength="2"
               maxlength="200" 
@@ -46,7 +48,7 @@
               placeholder="Чем Вы занимаетесь" 
               class="popup__item popup__item_el_job"
               >
-              <span class="popup__error-message"></span>
+              <span id="input-job-err" class="popup__error-message"></span>
               <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Сохранить</button>
             </form>
           </div>
@@ -57,6 +59,7 @@
               <form class="popup__form popup__form_type_gallery" name="gallery">
               <h3 class="popup__title">Новое место</h3>
               <input
+              id="input-place"
               required
               minlength="2"
               maxlength="30" 
@@ -64,14 +67,15 @@
               placeholder="Название" 
               class="popup__item popup__item_el_place"
               >
-              <span class="popup__error-message"></span>
+              <span id="input-place-err" class="popup__error-message"></span>
               <input
+              id="input-url"
               required 
               type="url" 
               placeholder="Ссылка на картинку" 
               class="popup__item popup__item_el_link"
               >
-              <span class="popup__error-message"></span>
+              <span id="input-url-err" class="popup__error-message"></span>
               <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Создать</button>
             </form>
           </div>
@@ -98,5 +102,6 @@
     </div>  
   </template>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 </html>
