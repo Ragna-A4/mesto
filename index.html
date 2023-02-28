@@ -29,8 +29,22 @@
             <button class="close-button buttons-hover close-button_form_profile" type="button"></button>
               <form class="popup__form popup__form_type_profile" name="profile">
               <h3 class="popup__title">Редактировать профиль</h3>
-              <input type="text" placeholder="Ваше имя" class="popup__item popup__item_el_name">
-              <input type="text" placeholder="Чем Вы занимаетесь" class="popup__item popup__item_el_job">
+              <input
+              required
+              minlength="2"
+              maxlength="40"
+              type="text" 
+              placeholder="Ваше имя" 
+              class="popup__item popup__item_el_name"
+              >
+              <input
+              required
+              minlength="2"
+              maxlength="200" 
+              type="text" 
+              placeholder="Чем Вы занимаетесь" 
+              class="popup__item popup__item_el_job"
+              >
               <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Сохранить</button>
             </form>
           </div>
@@ -40,8 +54,20 @@
             <button class="close-button buttons-hover close-button_form_gallery" type="button"></button>
               <form class="popup__form popup__form_type_gallery" name="gallery">
               <h3 class="popup__title">Новое место</h3>
-              <input type="text" placeholder="Название" class="popup__item popup__item_el_place">
-              <input type="text" placeholder="Ссылка на картинку" class="popup__item popup__item_el_link">
+              <input
+              required
+              minlength="2"
+              maxlength="30" 
+              type="text" 
+              placeholder="Название" 
+              class="popup__item popup__item_el_place"
+              >
+              <input
+              required 
+              type="url" 
+              placeholder="Ссылка на картинку" 
+              class="popup__item popup__item_el_link"
+              >
               <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Создать</button>
             </form>
           </div>
