@@ -49,8 +49,12 @@ const checkInputValidity = (formElement, inputElement) => {
 const toggleButtonState = (inputList, buttonElement) => {
     if (hasInvalidInput(inputList)) {
       buttonElement.classList.add('popup__save-button_inactive');
+      buttonElement.setAttribute('disabled', true);
+      buttonElement.classList.remove('buttons-hover', 'buttons-hover_type_save');
     } else {
       buttonElement.classList.remove('popup__save-button_inactive');
+      buttonElement.removeAttribute('disabled');
+      buttonElement.classList.add('buttons-hover', 'buttons-hover_type_save');
     }
   };
 
@@ -75,7 +79,7 @@ const disableSubmit = (evt) => {
 //вызываем при попытке сохранения данных в форме
 form.addEventListener('submit', disableSubmit);
 
-//вызываем проверку полей после заверщения ввода
+//вызываем проверку полей после завершения ввода
 formInput.addEventListener('input', () => {
     checkInputValidity(form, formInput);
 });
