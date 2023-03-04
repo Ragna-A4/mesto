@@ -7,8 +7,10 @@
     font-weight: 400;
     color: #f00;
     border: none;
-    margin: 5px auto 0;
-    visibility: hidden;
+    margin: 0 auto;
+    opacity: 0;
+    display: flex;
+    transition: opacity 0.5 ease;
 }
 
 @media screen and (max-width: 1060px) {

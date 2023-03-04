@@ -1,6 +1,6 @@
 .popup__item {
     width: 100%;
-    max-width: 358px;
+    width: 358px;
     line-height: 17px;
     font-size: 14px;
     font-weight: 400;
@@ -13,6 +13,6 @@
 
 @media screen and (max-width: 1060px) {
     .popup__item {
-        max-width: 238px;
+        width: 238px;
     }
 }
