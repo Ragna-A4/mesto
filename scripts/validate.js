@@ -1,31 +1,17 @@
-// выносим настройки валидации по ТЗ в отдельный объект
-
-const formValidationConfig = {
-    formSelector: '.popup__form',                          //formElement - form
-    inputSelector: '.popup__item',                         //formInput 
-    submitButtonSelector: '.popup__save-button',
-    inactiveButtonClass: 'popup__save-button_inactive',
-    inputErrorClass: 'popup__item_type_error',
-    errorClass: 'popup__error-message_active'   
-}
-
-const form = document.querySelector('.popup__form');         //formElement - form
-const formInput = form.querySelector('.popup__item');        //formInput
-const formError = document.querySelector(`#${formInput.id}-err`); //сообщение об ошибке
 
 //добавляем класс с выделением ошибки в поле ввода
 const showError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-err`);
-    inputElement.classList.add('popup__item_type_error');
+    inputElement.classList.add(formValidation.inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add('popup__error-message_active');
+    errorElement.classList.add(formValidation.errorClass);
 }
 
 //убираем класс с выделением ошибки в поле ввода
 const hideError = (formElement, inputElement) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-err`);
-    inputElement.classList.remove('popup__item_type_error');
-    errorElement.classList.remove('popup__error-message_active');
+    inputElement.classList.remove(formValidation.inputErrorClass);
+    errorElement.classList.remove(formValidation.errorClass);
     errorElement.textContent = '';
 }
 
@@ -48,11 +34,11 @@ const checkInputValidity = (formElement, inputElement) => {
 //управляем состоянием кнопки сабмит
 const toggleButtonState = (inputList, buttonElement) => {
     if (hasInvalidInput(inputList)) {
-      buttonElement.classList.add('popup__save-button_inactive');
+      buttonElement.classList.add(formValidation.inactiveButtonClass);
       buttonElement.setAttribute('disabled', true);
       buttonElement.classList.remove('buttons-hover', 'buttons-hover_type_save');
     } else {
-      buttonElement.classList.remove('popup__save-button_inactive');
+      buttonElement.classList.remove(formValidation.inactiveButtonClass);
       buttonElement.removeAttribute('disabled');
       buttonElement.classList.add('buttons-hover', 'buttons-hover_type_save');
     }
@@ -60,8 +46,8 @@ const toggleButtonState = (inputList, buttonElement) => {
 
 //проверка всех полей формы на валидность
 const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.popup__item'));
-    const buttonElement = formElement.querySelector('.popup__save-button');
+    const inputList = Array.from(formElement.querySelectorAll(formValidation.inputSelector));
+    const buttonElement = formElement.querySelector(formValidation.submitButtonSelector);
     toggleButtonState(inputList, buttonElement);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', function() {
@@ -86,7 +72,7 @@ formInput.addEventListener('input', () => {
 
 //проверка формы на валидность
 const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll('.popup__form'));
+    const formList = Array.from(document.querySelectorAll(formValidation.formSelector));
      formList.forEach((formElement) => {
        formElement.addEventListener('submit', (evt) => {
        evt.preventDefault();
@@ -95,7 +81,7 @@ const enableValidation = () => {
   }); 
   };
   
-  enableValidation();
+  enableValidation(formValidation);
 
 //const enableValidation = (config) => {
 //    const form = document.querySelector(config.formSelector);
