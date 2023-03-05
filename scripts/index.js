@@ -3,7 +3,6 @@
 const closePopupcEscClick = (e)  => {
     if (e.key === "Escape") {
         const thisPopup = document.querySelector('.popup_opened');
-        console.log(thisPopup);
         closePopup(thisPopup);
     };
 }
@@ -25,6 +24,7 @@ const openPopup = (popup) => {
 //функция закрытия попапа
 const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupcEscClick);
 }
 
 //закрытие попапа через "х"
