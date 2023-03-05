@@ -57,4 +57,5 @@ const cardImage = document.querySelector('.card__image');
 const imagePopup = document.querySelector('.image-popup');
 const imagePopupPicture = imagePopup.querySelector('.image-popup__picture');
 const imagePopupNaming = imagePopup.querySelector('.image-popup__naming');
-const closeButtons = document.querySelectorAll('.close-button');   
+const closeButtons = document.querySelectorAll('.close-button');
+const popups = document.querySelectorAll('.popup');

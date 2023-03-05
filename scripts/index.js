@@ -1,7 +1,25 @@
-                
+
+//функция закрытия попапа при нажатии на "esc"
+const closePopupcEscClick = (e)  => {
+    if (e.key === "Escape") {
+        const thisPopup = document.querySelector('.popup_opened');
+        console.log(thisPopup);
+        closePopup(thisPopup);
+    };
+}
+
+//функция закрытия попапа через оверлей
+const closePopupOverlayClick = (evt) => {
+    const thisPopup = document.querySelector('.popup_opened');
+    if (evt.target === evt.currentTarget) {
+        closePopup(thisPopup);
+      };
+}
+
 //функция открытия попапа
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupcEscClick);
 }
 
 //функция закрытия попапа
@@ -15,12 +33,16 @@ closeButtons.forEach((button) => {
     button.addEventListener('click', () => closePopup(popup));
 });
 
+
 //функция открытия формы редактирования профиля
 //инпуты формы заполнены текущими данными профиля
 const handleEditButtonClick = () => {
     openPopup(popupProfileEdit);
+    popupProfileEdit.addEventListener('click', closePopupOverlayClick);
+    const submitButton = popupProfileEdit.querySelector(formValidation.submitButtonSelector);
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
+    enableButton(submitButton);
 }
 
 //функция редактирования данных профиля из формы
@@ -38,6 +60,9 @@ profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 //функция открытия формы добавления карточек в галерею
 const handleAddButtonClick = () => {
     openPopup(popupGalleryAdd);
+    popupGalleryAdd.addEventListener('click', closePopupOverlayClick);
+    const submitButton = popupGalleryAdd.querySelector(formValidation.submitButtonSelector);
+    disableButton(submitButton);
 }
 
 //кнопки управления формой добавления карточек в галерею
@@ -72,6 +97,7 @@ const handleImageClick = (evt) => {
     imagePopupPicture.alt = thisImage.alt;
     imagePopupNaming.textContent = thisNaming.textContent;
     openPopup(imagePopup);
+    imagePopup.addEventListener('click', closePopupOverlayClick);
 }
 
 //функция обработки шаблона при добавлении карточки в галерею
@@ -105,3 +131,5 @@ gallery.addEventListener('click', (evt) => {
         handleImageClick(evt);
     } 
 });
+
+enableValidation(formValidation);
