@@ -42,8 +42,8 @@ const handleEditButtonClick = () => {
     const submitButton = popupProfileEdit.querySelector(formValidation.submitButtonSelector);
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
-    hideError(popupProfileEdit, nameInput);
-    hideError(popupProfileEdit, jobInput);
+    hideError(nameInput, formValidation);
+    hideError(jobInput, formValidation);
     enableButton(submitButton, formValidation);
 }
 

@@ -1,26 +1,26 @@
 
 //добавляем класс с выделением ошибки в поле ввода
-const showError = (formElement, inputElement, errorMessage) => {
-    const errorElement = formElement.querySelector(`#${inputElement.id}-err`);
-    inputElement.classList.add(formValidation.inputErrorClass);
+const showError = (inputElement, errorMessage, settings) => {
+    const errorElement = document.querySelector(`#${inputElement.id}-err`);
+    inputElement.classList.add(settings.inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(formValidation.errorClass);
+    errorElement.classList.add(settings.errorClass);
 }
 
 //убираем класс с выделением ошибки в поле ввода
-const hideError = (formElement, inputElement) => {
-    const errorElement = formElement.querySelector(`#${inputElement.id}-err`);
-    inputElement.classList.remove(formValidation.inputErrorClass);
-    errorElement.classList.remove(formValidation.errorClass);
+const hideError = (inputElement, settings) => {
+    const errorElement = document.querySelector(`#${inputElement.id}-err`);
+    inputElement.classList.remove(settings.inputErrorClass);
+    errorElement.classList.remove(settings.errorClass);
     errorElement.textContent = '';
 }
 
 //функция проверки полей на валидность данных
-const checkInputValidity = (formElement, inputElement) => {
-    if (!inputElement.validity.valid) {
-        showError(formElement, inputElement, inputElement.validationMessage);
+const checkInputValidity = (inputElement, settings) => {
+    if (inputElement.validity.valid) {
+      hideError(inputElement, settings);
     } else {
-        hideError(formElement, inputElement);
+      showError(inputElement, inputElement.validationMessage, settings);
     }
 };
 
@@ -61,7 +61,7 @@ const setEventListeners = (formElement, settings) => {
     toggleButtonState(inputList, buttonElement, settings);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
-            checkInputValidity(formElement, inputElement);
+            checkInputValidity(inputElement, settings);
             toggleButtonState(inputList, buttonElement, settings);
         });
     });
@@ -76,9 +76,7 @@ const disableSubmit = (evt) => {
 form.addEventListener('submit', disableSubmit);
 
 //вызываем проверку полей после завершения ввода
-formInput.addEventListener('input', () => {
-    checkInputValidity(form, formInput);
-});
+//formInput.addEventListener('input', checkInputValidity);
 
 //проверка формы на валидность
 const enableValidation = (settings) => {
