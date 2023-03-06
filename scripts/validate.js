@@ -32,37 +32,37 @@ const checkInputValidity = (formElement, inputElement) => {
   };
 
 // функция отключения кнопки
-const disableButton = (buttonElement) => {
-  buttonElement.classList.add(formValidation.inactiveButtonClass);
+const disableButton = (buttonElement, settings) => {
+  buttonElement.classList.add(settings.inactiveButtonClass);
   buttonElement.setAttribute('disabled', true);
   buttonElement.classList.remove('buttons-hover', 'buttons-hover_type_save');
 }
 
 //функция включения кнопки
-const enableButton = (buttonElement) => {
-  buttonElement.classList.remove(formValidation.inactiveButtonClass);
+const enableButton = (buttonElement, settings) => {
+  buttonElement.classList.remove(settings.inactiveButtonClass);
   buttonElement.removeAttribute('disabled');
   buttonElement.classList.add('buttons-hover', 'buttons-hover_type_save');
 }
 
 //управляем состоянием кнопки сабмит
-const toggleButtonState = (inputList, buttonElement) => {
+const toggleButtonState = (inputList, buttonElement, settings) => {
     if (hasInvalidInput(inputList)) {
-      disableButton(buttonElement);
+      disableButton(buttonElement, settings);
     } else {
-      enableButton(buttonElement);
+      enableButton(buttonElement, settings);
     }
   };
 
 //проверка всех полей формы на валидность
-const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll(formValidation.inputSelector));
-    const buttonElement = formElement.querySelector(formValidation.submitButtonSelector);
-    toggleButtonState(inputList, buttonElement);
+const setEventListeners = (formElement, settings) => {
+    const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+    const buttonElement = formElement.querySelector(settings.submitButtonSelector);
+    toggleButtonState(inputList, buttonElement, settings);
     inputList.forEach((inputElement) => {
-        inputElement.addEventListener('input', function() {
+        inputElement.addEventListener('input', () => {
             checkInputValidity(formElement, inputElement);
-            toggleButtonState(inputList, buttonElement);
+            toggleButtonState(inputList, buttonElement, settings);
         });
     });
 }
@@ -81,12 +81,10 @@ formInput.addEventListener('input', () => {
 });
 
 //проверка формы на валидность
-const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll(formValidation.formSelector));
+const enableValidation = (settings) => {
+    const formList = Array.from(document.querySelectorAll(settings.formSelector));
      formList.forEach((formElement) => {
-       formElement.addEventListener('submit', (evt) => {
-       evt.preventDefault();
-       });
-      setEventListeners(formElement);
+       formElement.addEventListener('submit', disableSubmit);
+      setEventListeners(formElement, settings);
   }); 
   };
