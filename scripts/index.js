@@ -40,7 +40,6 @@ const handleEditButtonClick = () => {
     jobInput.value = jobProfile.textContent;
     hideError(nameInput, formValidation);
     hideError(jobInput, formValidation);
-    enableButton(submitButton, formValidation);
 }
 
 //функция редактирования данных профиля из формы
@@ -57,19 +56,12 @@ profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 //функция открытия формы добавления карточек в галерею
 const handleAddButtonClick = () => {
     openPopup(popupGalleryAdd);
-    const submitButton = popupGalleryAdd.querySelector(formValidation.submitButtonSelector);
-    disableButton(submitButton, formValidation);
 }
 
 //кнопки управления формой добавления карточек в галерею
 addButton.addEventListener('click', handleAddButtonClick);
-//при добавлении новой карточки проверяем, что значения не пустые
-//закрываем попап
 galleryFormElement.addEventListener('submit', (evt) => {
-    if (placeNameInput.value !== '' & placeLinkInput !== '') {
     renderCard(gallery, placeNameInput.value, placeLinkInput.value);
-    }
-    evt.target.reset();
     closePopup(popupGalleryAdd);
 });
 
