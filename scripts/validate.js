@@ -35,14 +35,14 @@ const checkInputValidity = (inputElement, settings) => {
 const disableButton = (buttonElement, settings) => {
   buttonElement.classList.add(settings.inactiveButtonClass);
   buttonElement.setAttribute('disabled', true);
-  buttonElement.classList.remove('buttons-hover', 'buttons-hover_type_save');
+  buttonElement.classList.remove(settings.buttonsHoverClass, settings.saveButtonHoverClass);
 }
 
 //функция включения кнопки
 const enableButton = (buttonElement, settings) => {
   buttonElement.classList.remove(settings.inactiveButtonClass);
   buttonElement.removeAttribute('disabled');
-  buttonElement.classList.add('buttons-hover', 'buttons-hover_type_save');
+  buttonElement.classList.add(settings.buttonsHoverClass, settings.saveButtonHoverClass);
 }
 
 //управляем состоянием кнопки сабмит
@@ -71,12 +71,6 @@ const setEventListeners = (formElement, settings) => {
 const disableSubmit = (evt) => {
     evt.preventDefault();
 }
-
-//вызываем при попытке сохранения данных в форме
-form.addEventListener('submit', disableSubmit);
-
-//вызываем проверку полей после завершения ввода
-//formInput.addEventListener('input', checkInputValidity);
 
 //проверка формы на валидность
 const enableValidation = (settings) => {

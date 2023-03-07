@@ -5,11 +5,10 @@ const formValidation = {
     submitButtonSelector: '.popup__save-button',
     inactiveButtonClass: 'popup__save-button_inactive',
     inputErrorClass: 'popup__item_type_error',
-    errorClass: 'popup__error-message_active'   
-}
-
-const form = document.querySelector('.popup__form');         
-const formInput = form.querySelector('.popup__item');        
+    errorClass: 'popup__error-message_active',
+    buttonsHoverClass: 'buttons-hover',
+    saveButtonHoverClass: 'buttons-hover_type_save',   
+}     
 
 const initialCards = [
     {
@@ -45,12 +44,12 @@ const editButton = document.querySelector('.profile__edit-button');
 const popupProfileEdit = document.querySelector('.popup_type_profile-edit');
 const addButton = document.querySelector('.profile__add-button')
 const popupGalleryAdd = document.querySelector('.popup_type_gallery-add');
-const profileFormElement = document.querySelector('.popup__form_type_profile');
+const profileFormElement = document.forms['profile'];
 const nameInput = popupProfileEdit.querySelector('.popup__item_el_name');
 const jobInput = popupProfileEdit.querySelector('.popup__item_el_job');
 const nameProfile = document.querySelector('.profile__user-name');
 const jobProfile = document.querySelector('.profile__user-job');
-const galleryFormElement = document.querySelector('.popup__form_type_gallery');
+const galleryFormElement = document.forms['gallery'];
 const placeNameInput = popupGalleryAdd.querySelector('.popup__item_el_place');
 const placeLinkInput = popupGalleryAdd.querySelector('.popup__item_el_link');
 const cardImage = document.querySelector('.card__image');
