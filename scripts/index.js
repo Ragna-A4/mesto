@@ -7,14 +7,6 @@ const closePopupcEscClick = (e)  => {
     };
 }
 
-//функция закрытия попапа через оверлей
-const closePopupOverlayClick = (evt) => {
-    const thisPopup = document.querySelector('.popup_opened');
-    if (evt.target === evt.currentTarget) {
-        closePopup(thisPopup);
-      };
-}
-
 //функция открытия попапа
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
@@ -27,18 +19,22 @@ const closePopup = (popup) => {
     document.removeEventListener('keydown', closePopupcEscClick);
 }
 
-//закрытие попапа через "х"
-closeButtons.forEach((button) => {
-    const popup = button.closest('.popup');
-    button.addEventListener('click', () => closePopup(popup));
-});
-
+//закрытие попапа через "х" и оверлэй
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if(evt.target.classList.contains('popup_opened')) {
+            closePopup(popup);
+        }
+        if(evt.target.classList.contains('close-button')) {
+            closePopup(popup);
+        }
+    });
+})
 
 //функция открытия формы редактирования профиля
 //инпуты формы заполнены текущими данными профиля
 const handleEditButtonClick = () => {
     openPopup(popupProfileEdit);
-    popupProfileEdit.addEventListener('click', closePopupOverlayClick);
     const submitButton = popupProfileEdit.querySelector(formValidation.submitButtonSelector);
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
@@ -49,7 +45,6 @@ const handleEditButtonClick = () => {
 
 //функция редактирования данных профиля из формы
 const handleProfileFormSubmit = () => {
-    disableSubmit;
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
     closePopup(popupProfileEdit);
@@ -62,7 +57,6 @@ profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 //функция открытия формы добавления карточек в галерею
 const handleAddButtonClick = () => {
     openPopup(popupGalleryAdd);
-    popupGalleryAdd.addEventListener('click', closePopupOverlayClick);
     const submitButton = popupGalleryAdd.querySelector(formValidation.submitButtonSelector);
     disableButton(submitButton, formValidation);
 }
@@ -72,7 +66,6 @@ addButton.addEventListener('click', handleAddButtonClick);
 //при добавлении новой карточки проверяем, что значения не пустые
 //закрываем попап
 galleryFormElement.addEventListener('submit', (evt) => {
-    disableSubmit;
     if (placeNameInput.value !== '' & placeLinkInput !== '') {
     renderCard(gallery, placeNameInput.value, placeLinkInput.value);
     }
@@ -99,7 +92,6 @@ const handleImageClick = (evt) => {
     imagePopupPicture.alt = thisImage.alt;
     imagePopupNaming.textContent = thisNaming.textContent;
     openPopup(imagePopup);
-    imagePopup.addEventListener('click', closePopupOverlayClick);
 }
 
 //функция обработки шаблона при добавлении карточки в галерею

@@ -59,12 +59,20 @@ const setEventListeners = (formElement, settings) => {
     const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
     const buttonElement = formElement.querySelector(settings.submitButtonSelector);
     toggleButtonState(inputList, buttonElement, settings);
+
+    formElement.addEventListener('reset', () => {
+      setTimeout(() => {
+        toggleButtonState(inputList, buttonElement, settings);
+      }, 0);
+    });
+
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
             checkInputValidity(inputElement, settings);
             toggleButtonState(inputList, buttonElement, settings);
         });
     });
+
 }
 
 //отменяем стандартное поведение 
