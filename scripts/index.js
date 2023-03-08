@@ -62,6 +62,7 @@ const handleAddButtonClick = () => {
 addButton.addEventListener('click', handleAddButtonClick);
 galleryFormElement.addEventListener('submit', (evt) => {
     renderCard(gallery, placeNameInput.value, placeLinkInput.value);
+    evt.target.reset();
     closePopup(popupGalleryAdd);
 });
 
