@@ -95,6 +95,12 @@ const getCardElement = (placeName, placeLink) => {
     newCardImage.alt = placeName;
     const newCardNaming = newCardElement.querySelector('.card__naming');
     newCardNaming.textContent = placeName;
+    const deleteButton = newCardElement.querySelector('.card-button__trash');
+    const likeButton = newCardElement.querySelector('.card-button__like');
+    const openImage = newCardElement.querySelector('.card__image');
+    deleteButton.addEventListener('click', handleDeleteCard);
+    likeButton.addEventListener('click', handleLikeCard);
+    openImage.addEventListener('click', handleImageClick);
     return newCardElement;
 }
 
@@ -107,16 +113,5 @@ const renderCard = (wrap, placeName, placeLink) => {
 initialCards.forEach((element) => {
     renderCard(gallery, element.name, element.link)
 })
-
-//вызов событий в зависимости от "места" клика по карточке (попап изображения, лайк или корзина)
-gallery.addEventListener('click', (evt) => {
-    if (evt.target.matches('.card-button__trash')) {
-        handleDeleteCard(evt);
-    } else if (evt.target.matches('.card-button__like')) {
-        handleLikeCard(evt);
-    } else if (evt.target.matches('.card__image')) {
-        handleImageClick(evt);
-    } 
-});
 
 enableValidation(formValidation);
