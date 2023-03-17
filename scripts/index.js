@@ -1,5 +1,5 @@
 
-import Card from './card';
+import Card from './card.js';
 import FormValidator from './formvalidator.js';
 import { 
     formValidation,
@@ -17,7 +17,7 @@ import {
     galleryFormElement,
     placeNameInput,
     placeLinkInput,
-    popups } from './constants';
+    popups } from './constants.js';
 
 //функция создания карточки
 const addCardElement = (data) => {
@@ -45,7 +45,7 @@ const closePopupcEscClick = (e)  => {
 }
 
 //функция открытия попапа
-const openPopup = (popup) => {
+export const openPopup = (popup) => {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupcEscClick);
 }

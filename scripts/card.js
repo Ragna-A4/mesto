@@ -1,3 +1,9 @@
+import { 
+    imagePopup,
+    imagePopupPicture,
+    imagePopupNaming } from './constants.js';
+
+import { openPopup } from './index.js';
 
 export default class Card {
     constructor(data, templateSelector) {

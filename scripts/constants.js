@@ -50,4 +50,7 @@ export const jobProfile = document.querySelector('.profile__user-job');
 export const galleryFormElement = document.forms['gallery'];
 export const placeNameInput = popupGalleryAdd.querySelector('.popup__item_el_place');
 export const placeLinkInput = popupGalleryAdd.querySelector('.popup__item_el_link');
+export const imagePopup = document.querySelector('.image-popup');
+export const imagePopupPicture = imagePopup.querySelector('.image-popup__picture');
+export const imagePopupNaming = imagePopup.querySelector('.image-popup__naming');
 export const popups = document.querySelectorAll('.popup');
