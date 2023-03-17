@@ -54,8 +54,6 @@ const handleEditButtonClick = () => {
     openPopup(popupProfileEdit);
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
-    hideError(nameInput, formValidation);
-    hideError(jobInput, formValidation);
 }
 
 //функция редактирования данных профиля из формы
@@ -86,4 +84,8 @@ galleryFormElement.addEventListener('submit', (evt) => {
     closePopup(popupGalleryAdd);
 });
 
-enableValidation(formValidation);
+const profileValidation = new FormValidator(profileFormElement, formValidation);
+profileValidation.enableValidation();
+
+const galleryValidation = new FormValidator(galleryFormElement, formValidation);
+galleryValidation.enableValidation();
