@@ -1,4 +1,5 @@
-class FormValidator {
+
+export default class FormValidator {
     constructor(formElement, settings) {
         this._formElement = formElement;
         this._formInput = settings.inputSelector;
@@ -71,6 +72,17 @@ class FormValidator {
         });
     });
   }
+  
+  //сброс ошибок и установка актуальной кнопки сабмита при отрытии
+  resetForm() {
+    this._toggleButtonState();
+
+    this._inputList.forEach((inputElement) => {
+        this._inputElement = inputElement;
+        this._hideError();
+    });
+  }
+
 
 //проверка формы на валидность
   enableValidation() {

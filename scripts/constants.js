@@ -1,5 +1,5 @@
 
-const formValidation = {
+export const formValidation = {
     formSelector: '.popup__form',                          
     inputSelector: '.popup__item',                         
     submitButtonSelector: '.popup__save-button',
@@ -10,7 +10,7 @@ const formValidation = {
     saveButtonHoverClass: 'buttons-hover_type_save',   
 }     
 
-const initialCards = [
+export const initialCards = [
     {
       name: 'Пляж',
       link: './images/beach.jpg'
@@ -37,24 +37,17 @@ const initialCards = [
     }
   ]; 
 
-const gallery = document.querySelector('.gallery');
-const cardTemplate = document.getElementById('card');
-const cards = gallery.children;
-const editButton = document.querySelector('.profile__edit-button');
-const popupProfileEdit = document.querySelector('.popup_type_profile-edit');
-const addButton = document.querySelector('.profile__add-button')
-const popupGalleryAdd = document.querySelector('.popup_type_gallery-add');
-const profileFormElement = document.forms['profile'];
-const nameInput = popupProfileEdit.querySelector('.popup__item_el_name');
-const jobInput = popupProfileEdit.querySelector('.popup__item_el_job');
-const nameProfile = document.querySelector('.profile__user-name');
-const jobProfile = document.querySelector('.profile__user-job');
-const galleryFormElement = document.forms['gallery'];
-const placeNameInput = popupGalleryAdd.querySelector('.popup__item_el_place');
-const placeLinkInput = popupGalleryAdd.querySelector('.popup__item_el_link');
-const cardImage = document.querySelector('.card__image');
-const imagePopup = document.querySelector('.image-popup');
-const imagePopupPicture = imagePopup.querySelector('.image-popup__picture');
-const imagePopupNaming = imagePopup.querySelector('.image-popup__naming');
-const closeButtons = document.querySelectorAll('.close-button');
-const popups = document.querySelectorAll('.popup');
+export const gallery = document.querySelector('.gallery');
+export const editButton = document.querySelector('.profile__edit-button');
+export const popupProfileEdit = document.querySelector('.popup_type_profile-edit');
+export const addButton = document.querySelector('.profile__add-button')
+export const popupGalleryAdd = document.querySelector('.popup_type_gallery-add');
+export const profileFormElement = document.forms['profile'];
+export const nameInput = popupProfileEdit.querySelector('.popup__item_el_name');
+export const jobInput = popupProfileEdit.querySelector('.popup__item_el_job');
+export const nameProfile = document.querySelector('.profile__user-name');
+export const jobProfile = document.querySelector('.profile__user-job');
+export const galleryFormElement = document.forms['gallery'];
+export const placeNameInput = popupGalleryAdd.querySelector('.popup__item_el_place');
+export const placeLinkInput = popupGalleryAdd.querySelector('.popup__item_el_link');
+export const popups = document.querySelectorAll('.popup');

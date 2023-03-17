@@ -1,4 +1,5 @@
-class Card {
+
+export default class Card {
     constructor(data, templateSelector) {
         this._placeName = data.name;
         this._placeLink = data.link;

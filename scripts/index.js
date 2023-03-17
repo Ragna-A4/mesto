@@ -1,12 +1,32 @@
 
+import Card from './card';
+import FormValidator from './formvalidator.js';
+import { 
+    formValidation,
+    initialCards,
+    gallery,
+    editButton,
+    popupProfileEdit,
+    addButton,
+    popupGalleryAdd,
+    profileFormElement,
+    nameInput,
+    jobInput,
+    nameProfile,
+    jobProfile,
+    galleryFormElement,
+    placeNameInput,
+    placeLinkInput,
+    popups } from './constants';
+
 //функция создания карточки
-function addCardElement(data) {
+const addCardElement = (data) => {
     const cardElement = new Card(data, '#card');
     return cardElement.getCardElement();
 }
 
 //функция добавления карточки в начало галереи
-function renderCard(warp, cardElement) {
+const renderCard = (warp, cardElement) => {
     warp.prepend(cardElement);
 }
 
@@ -57,14 +77,19 @@ const handleEditButtonClick = () => {
 }
 
 //функция редактирования данных профиля из формы
-const handleProfileFormSubmit = () => {
+const handleProfileFormSubmit = (evt) => {
+    evt.preventDefault();
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
     closePopup(popupProfileEdit);
 }
 
 //кнопки управления формой редактирования данных профиля
-editButton.addEventListener('click', handleEditButtonClick);
+editButton.addEventListener('click', () => {
+    handleEditButtonClick();
+    profileValidation.resetForm();
+})
+
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 
 //функция открытия формы добавления карточек в галерею
@@ -73,8 +98,15 @@ const handleAddButtonClick = () => {
 }
 
 //кнопки управления формой добавления карточек в галерею
-addButton.addEventListener('click', handleAddButtonClick);
+addButton.addEventListener('click', () => {
+    handleAddButtonClick();
+    galleryValidation.resetForm();
+})
+
+
 galleryFormElement.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+
     const newCard = {
         name: placeNameInput.value,
         link: placeLinkInput.value
