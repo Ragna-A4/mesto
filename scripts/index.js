@@ -1,5 +1,6 @@
 
 import Card from './card.js';
+import Section from './section.js';
 import FormValidator from './formvalidator.js';
 import { 
     formValidation,
@@ -25,16 +26,17 @@ const addCardElement = (data) => {
     return cardElement.getCardElement();
 }
 
-//функция добавления карточки в начало галереи
-const renderCard = (warp, cardElement) => {
-    warp.prepend(cardElement);
-}
+//создаем галерею из нового класса секция
+const userGallery = new Section(
+    {items: initialCards,
+     renderer: (card) => {
+        userGallery.addItem(addCardElement(card));
+     },
+    },
+    gallery
+) 
 
-//заполнение галереи данными из массива
-initialCards.forEach((element) => {
-    renderCard(gallery,addCardElement(element));
-});
-
+userGallery.renderItems();
 
 //функция закрытия попапа при нажатии на "esc"
 const closePopupcEscClick = (e)  => {
