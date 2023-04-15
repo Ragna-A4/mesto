@@ -1,6 +1,7 @@
 
 import Card from './card.js';
 import Section from './section.js';
+import UserInfo from './userinfo.js';
 import FormValidator from './formvalidator.js';
 import { 
     formValidation,
@@ -38,6 +39,11 @@ const userGallery = new Section(
 
 userGallery.renderItems();
 
+const profile = new UserInfo(
+    {nameSelector: nameProfile,
+     jobSelector: jobProfile
+    })
+
 //функция закрытия попапа при нажатии на "esc"
 const closePopupcEscClick = (e)  => {
     if (e.key === "Escape") {
@@ -72,10 +78,10 @@ popups.forEach((popup) => {
 
 //функция открытия формы редактирования профиля
 //инпуты формы заполнены текущими данными профиля
-const handleEditButtonClick = () => {
+const handleEditButtonClick = ({name, job}) => {
     openPopup(popupProfileEdit);
-    nameInput.value = nameProfile.textContent;
-    jobInput.value = jobProfile.textContent;
+    nameInput.value = name;
+    jobInput.value = job;
 }
 
 //функция редактирования данных профиля из формы
@@ -88,7 +94,7 @@ const handleProfileFormSubmit = (evt) => {
 
 //кнопки управления формой редактирования данных профиля
 editButton.addEventListener('click', () => {
-    handleEditButtonClick();
+    handleEditButtonClick(profile.getUserInfo);
     profileValidation.resetForm();
 })
 
