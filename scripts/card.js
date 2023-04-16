@@ -1,15 +1,9 @@
-import { 
-    imagePopup,
-    imagePopupPicture,
-    imagePopupNaming } from './constants.js';
-
-import { openPopup } from './index.js';
-
 export default class Card {
-    constructor(data, templateSelector) {
+    constructor(data, templateSelector, openImagePopup) {
         this._placeName = data.name;
         this._placeLink = data.link;
         this._templateSelector = templateSelector;
+        this._openImagePopup = openImagePopup;
     }
 
     _getTamplate() {
@@ -32,15 +26,7 @@ export default class Card {
         this._likeButton.classList.toggle('card-button__like_active');
     }
 
-//функция открытия зум-а изображения на карточке
-    _handleImageClick () {
-        imagePopupPicture.src = this._image.src;
-        imagePopupPicture.alt = this._image.alt;
-        imagePopupNaming.textContent = this._title.textContent;
-        openPopup(imagePopup);
-    }
-
-    //добавляем слушателй элементов карточки
+//добавляем слушателй элементов карточки
     _setEventListeners () {
         this._deleteButton.addEventListener('click', () => {
             this._handleDeleteCard();
@@ -50,7 +36,7 @@ export default class Card {
             this._handleLikeCard();
         });
         this._image.addEventListener('click', () => {
-            this._handleImageClick();
+            this._openImagePopup(this._placeName, this._placeLink);
         });
     }
 
@@ -70,4 +56,3 @@ export default class Card {
         return this._element;
     }
 }
-

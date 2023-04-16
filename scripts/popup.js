@@ -1,6 +1,6 @@
 export default class Popup {
     constructor(popupSelector) {
-        this._popup = document.querySelector(popupSelector);
+        this._popup = popupSelector;
     }
 
     //закрытие попапа при нажатии на "esc"
