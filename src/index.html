@@ -7,12 +7,12 @@
 </head>
 <body class="page">
     <header class="header">
-        <img class="header__logo" alt="лого_место" src="./images/logo.svg">
+        <img class="header__logo" alt="лого_место" src="<%=require('./images/logo.svg')%>">
     </header>
     <main class="content">
         <section class="profile">
             <div class="profile__user">
-                <img class="profile__avatar" src="./images/avatar.png" alt="аватар">
+                <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="аватар">
                 <div class="profile__user-info">
                     <h1 class="profile__user-name text-overflow">Жак-Ив Кусто</h1>
                     <button class="profile__edit-button buttons-hover" type="button"></button>
@@ -86,7 +86,7 @@
         <section class="popup image-popup">
           <div class="image-popup__container">
             <button class="close-button buttons-hover" type="button"></button>
-            <img class="image-popup__picture" src="./images/beach.jpg" alt ="пляж">
+            <img class="image-popup__picture" src="<%=require('./images/beach.jpg')%>" alt ="пляж">
             <h3 class="image-popup__naming">Пляж</h3>
           </div>
         </section>
@@ -96,7 +96,7 @@
     </footer>
   <template id="card">
     <div class="card">
-      <img class="card__image" src="./images/beach.jpg" alt="пляж">
+      <img class="card__image" src="<%=require('./images/beach.jpg')%>" alt="пляж">
       <button class="card-button card-button__trash buttons-hover" type="button"></button>
       <div class="card__description"> 
         <h2 class="card__naming text-overflow">Пляж</h2>

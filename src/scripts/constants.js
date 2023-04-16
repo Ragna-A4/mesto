@@ -10,30 +10,37 @@ export const formValidation = {
     saveButtonHoverClass: 'buttons-hover_type_save',   
 }     
 
+const BeachImage = new URL('../images/beach.jpg', import.meta.url);
+const CoralsImage = new URL('../images/corals.jpg', import.meta.url);
+const IslandImage = new URL('../images/island.jpg', import.meta.url);
+const JellyfishImage = new URL('../images/jellyfish.jpg', import.meta.url);
+const SunsetImage = new URL('../images/sunset.jpg', import.meta.url);
+const FinwhaleImage = new URL('../images/fin_whale.jpg', import.meta.url);
+
 export const initialCards = [
     {
       name: 'Пляж',
-      link: './images/beach.jpg'
+      link: BeachImage
     },
     {
       name: 'Кораллы',
-      link: './images/corals.jpg'
+      link: CoralsImage
     },
     {
       name: 'Остров',
-      link: './images/island.jpg'
+      link: IslandImage
     },
     {
       name: 'Медуза',
-      link: './images/jellyfish.jpg'
+      link: JellyfishImage
     },
     {
       name: 'Закат',
-      link: './images/sunset.jpg'
+      link: SunsetImage
     },
     {
       name: 'Кашалот',
-      link: './images/fin_whale.jpg'
+      link: FinwhaleImage
     }
   ]; 
 
