@@ -25,8 +25,8 @@ import {
 
 const userGallery = new Section(
     {items: initialCards,
-     renderer: (item) => {
-        userGallery.addItem(getCardElement(item));
+     renderer: (card) => {
+        userGallery.addItem(addCardElement(card));
      },
     },
     gallery
@@ -48,14 +48,12 @@ cardPopup.setEventListeners();
 
 function addCardElement(data) {
     const cardElement = new Card(data, '#card', openImagePopup);
-          cardElement.getCardElement();
-    return userGallery.addItem(cardElement);
+    return cardElement.getCardElement();
 }
 
-const galleryForm = new PopupWithForm(popupGalleryAdd, (data) => {
-    addCardElement({name: data.name, link: data.link});
+const galleryForm = new PopupWithForm(popupGalleryAdd, ({name, link}) => {
+    userGallery.addItem(addCardElement({name, link}));
     galleryForm.closePopup();
-    galleryValidation.resetForm();
 })
 
 galleryForm.setEventListeners();
@@ -78,10 +76,16 @@ const profileForm = new PopupWithForm(popupProfileEdit, (data) => {
 
 profileForm.setEventListeners();
 
+function openProfileForm({user, job}) {
+    nameInput.value = user;
+    jobInput.value = job;
+
+    profileForm.openPopup();
+}
+
 editButton.addEventListener('click', () => {
-        profileForm.openPopup();
-        nameInput.value = profile.getUserInfo.name;
-        jobInput.value = profile.getUserInfo.job;
+        openProfileForm(profile.getUserInfo());
+        profileValidation.resetForm();
     })
 
 // ====================================> валидация форм <======================================
