@@ -1,11 +1,11 @@
+import './index.css'
 
-
-import Card from './card.js';
-import Section from './section.js';
-import UserInfo from './userinfo.js';
-import PopupWithImage from './popupwithimage.js';
-import PopupWithForm from './popupwithform.js';
-import FormValidator from './formvalidator.js';
+import Card from '../scripts/card.js';
+import Section from '../scripts/section.js';
+import UserInfo from '../scripts/userinfo.js';
+import PopupWithImage from '../scripts/popupwithimage.js';
+import PopupWithForm from '../scripts/popupwithform.js';
+import FormValidator from '../scripts/formvalidator.js';
 import { 
     formValidation,
     initialCards,
@@ -20,7 +20,7 @@ import {
     nameProfile,
     jobProfile,
     galleryFormElement,
-    imagePopup} from './constants.js';
+    imagePopup} from '../scripts/constants.js';
 // ====================================> заполнение галереи <===================================
 
 const userGallery = new Section(
