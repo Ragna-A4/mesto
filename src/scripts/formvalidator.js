@@ -75,7 +75,7 @@ export default class FormValidator {
   
   //сброс ошибок и установка актуальной кнопки сабмита при отрытии
   resetForm() {
-    this._toggleButtonState();
+    this._disableButton();
 
     this._inputList.forEach((inputElement) => {
         this._inputElement = inputElement;

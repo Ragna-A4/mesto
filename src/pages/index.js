@@ -1,11 +1,11 @@
 import './index.css'
 
-import Card from '../scripts/card.js';
-import Section from '../scripts/section.js';
-import UserInfo from '../scripts/userinfo.js';
-import PopupWithImage from '../scripts/popupwithimage.js';
-import PopupWithForm from '../scripts/popupwithform.js';
-import FormValidator from '../scripts/formvalidator.js';
+import Card from '../scripts/Card.js';
+import Section from '../scripts/Section.js';
+import UserInfo from '../scripts/UserInfo.js';
+import PopupWithImage from '../scripts/PopupWithImage.js';
+import PopupWithForm from '../scripts/PopupWithForm.js';
+import FormValidator from '../scripts/FormValidator.js';
 import { 
     formValidation,
     initialCards,
@@ -20,7 +20,7 @@ import {
     nameProfile,
     jobProfile,
     galleryFormElement,
-    imagePopup} from '../scripts/constants.js';
+    imagePopup} from '../utils/Constants.js';
 // ====================================> заполнение галереи <===================================
 
 const userGallery = new Section(
@@ -60,13 +60,14 @@ galleryForm.setEventListeners();
 
 addButton.addEventListener('click', () => {
     galleryForm.openPopup();
+    galleryValidation.resetForm();
 });
 
 // ====================================> форма редактирования профиля <======================== 
 
 const profile = new UserInfo(
-    {nameSelector: nameProfile,
-     jobSelector: jobProfile
+    {name: nameProfile,
+     job: jobProfile
     })
 
 const profileForm = new PopupWithForm(popupProfileEdit, (data) => {
