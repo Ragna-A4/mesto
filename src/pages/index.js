@@ -6,6 +6,7 @@ import UserInfo from '../scripts/UserInfo.js';
 import PopupWithImage from '../scripts/PopupWithImage.js';
 import PopupWithForm from '../scripts/PopupWithForm.js';
 import FormValidator from '../scripts/FormValidator.js';
+import Api from '../scripts/Api.js';
 import { 
     formValidation,
     initialCards,
@@ -21,18 +22,29 @@ import {
     jobProfile,
     galleryFormElement,
     imagePopup} from '../utils/Constants.js';
+
+// ====================================> Api <==================================================
+
+const api = new Api({
+    url: 'https://mesto.nomoreparties.co/v1/cohort-65/',
+    headers: {
+        authorization: '7c5241b9-77fc-470b-9bc7-1667abece1a2',
+        'Content-Type': 'application/json',
+    },
+})
+
 // ====================================> заполнение галереи <===================================
 
-const userGallery = new Section(
-    {items: initialCards,
-     renderer: (card) => {
-        userGallery.addItem(addCardElement(card));
-     },
-    },
-    gallery
-) 
+    const userGallery = new Section(
+        {items: initialCards,
+         renderer: (card) => {
+            userGallery.addItem(addCardElement(card));
+         },
+        },
+        gallery
+    );
 
-userGallery.renderItems();
+    userGallery.renderItems();
 
 // ====================================> popup изображений <=================================== 
 
