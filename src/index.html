@@ -25,6 +25,7 @@
         </section>
         <section class="gallery">
         </section>
+
         <section class="popup popup_type_profile-edit">
           <div class="popup__container">
             <button class="close-button buttons-hover" type="button"></button>
@@ -56,6 +57,7 @@
             </form>
           </div>
         </section>
+
         <section class="popup popup_type_gallery-add">
           <div class="popup__container">
             <button class="close-button buttons-hover" type="button"></button>
@@ -85,6 +87,36 @@
             </form>
           </div>
         </section>
+
+        <section class="popup popup_type_avatar-edit">
+          <div class="popup__container">
+            <button class="close-button buttons-hover" type="button"></button>
+              <form class="popup__form" name="avatar" novalidate>
+                <h3 class="popup__title">Обновить аватар</h3>
+                <input
+                id="input-avatar"
+                name="avatar-link"
+                required 
+                type="url" 
+                placeholder="Ссылка на аватар" 
+                class="popup__item popup__item_el_avatar"
+                >
+                <span id="input-avatar-err" class="popup__error-message"></span>
+                <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Сохранить</button>
+              </form>
+          </div>
+        </section>
+
+        <section class="popup popup_type_deletion-confirm">
+          <div class="popup__container">
+            <button class="close-button buttons-hover" type="button"></button>
+              <form class="popup__form" name="confirm">
+                <h3 class="popup__title">Вы уверены?</h3>
+                <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Да</button>
+              </form>
+          </div>
+        </section>
+
         <section class="popup image-popup">
           <div class="image-popup__container">
             <button class="close-button buttons-hover" type="button"></button>
@@ -92,6 +124,7 @@
             <h3 class="image-popup__naming">Пляж</h3>
           </div>
         </section>
+
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
