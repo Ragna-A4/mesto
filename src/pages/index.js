@@ -5,6 +5,7 @@ import Section from '../scripts/Section.js';
 import UserInfo from '../scripts/UserInfo.js';
 import PopupWithImage from '../scripts/PopupWithImage.js';
 import PopupWithForm from '../scripts/PopupWithForm.js';
+import PopupWithConfirmation from '../scripts/PopupWithConfirmation.js';
 import FormValidator from '../scripts/FormValidator.js';
 import Api from '../scripts/Api.js';
 import { 

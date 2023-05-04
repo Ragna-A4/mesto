@@ -22,6 +22,15 @@ export default class Popup {
         document.removeEventListener('keydown', this._handleEscClose);
     }
 
+    submitLoad(loading, buttonText) {
+        this._buttonText = this._popup.querySelector('.popup__save-button');
+        if(loading) {
+            this._buttonText.textContent = "Сохранение ..."
+        } else {
+            this._buttonText.textContent = buttonText;
+        }
+    }
+
     setEventListeners() {
         this._popup.addEventListener('mousedown', (evt) => {
             if(evt.target.classList.contains('popup_opened')) {
