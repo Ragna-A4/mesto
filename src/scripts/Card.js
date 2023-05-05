@@ -1,9 +1,15 @@
 export default class Card {
-    constructor(data, templateSelector, openImagePopup, openDeletionConfirm, toggleLikeHandler) {
+    constructor({
+        data, 
+        templateSelector, 
+        openImagePopup, 
+        openDeletionConfirm, 
+        toggleLikeHandler
+    }) {
         this._placeName = data.name;
         this._placeLink = data.link;
         this._templateSelector = templateSelector;
-        this._openImagePopup = openImagePopup;
+        this._openImagePopup = openImagePopup;  
         this._openDeletionConfirm = openDeletionConfirm;
         this._toggleLikeHandler = toggleLikeHandler;
     }

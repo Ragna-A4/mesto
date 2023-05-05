@@ -58,6 +58,7 @@ export const nameInput = popupProfileEdit.querySelector('.popup__item_el_name');
 export const jobInput = popupProfileEdit.querySelector('.popup__item_el_job');
 export const nameProfile = document.querySelector('.profile__user-name');
 export const jobProfile = document.querySelector('.profile__user-job');
+export const avatarProfile = document.querySelector('.profile__avatar_image');
 export const popupDeletionConfirm = document.querySelector('.popup_type_deletion-confirm');
 export const galleryFormElement = document.forms['gallery'];
 export const placeNameInput = popupGalleryAdd.querySelector('.popup__item_el_place');

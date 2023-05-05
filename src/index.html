@@ -14,6 +14,7 @@
             <div class="profile__user">
                 <div class="profile__avatar">
                     <button class="profile__avatar-edit-button" type="button"></button>
+                    <img class="profile__avatar profile__avatar_image" src="<%=require('./images/avatar.png')%>" alt="аватар">
                 </div>
                 <div class="profile__user-info">
                     <h1 class="profile__user-name text-overflow">Жак-Ив Кусто</h1>
@@ -29,11 +30,11 @@
         <section class="popup popup_type_profile-edit">
           <div class="popup__container">
             <button class="close-button buttons-hover" type="button"></button>
-              <form class="popup__form" name="profile" novalidate>
+            <form class="popup__form" name="profile" novalidate>
               <h3 class="popup__title">Редактировать профиль</h3>
               <input
               id="input-name"
-              name="user"
+              name="name"
               required
               minlength="2"
               maxlength="40"
@@ -44,7 +45,7 @@
               <span id="input-name-err" class="popup__error-message"></span>
               <input
               id="input-job"
-              name="job"
+              name="about"
               required
               minlength="2"
               maxlength="200" 
@@ -61,7 +62,7 @@
         <section class="popup popup_type_gallery-add">
           <div class="popup__container">
             <button class="close-button buttons-hover" type="button"></button>
-              <form class="popup__form" name="gallery" novalidate>
+            <form class="popup__form" name="gallery" novalidate>
               <h3 class="popup__title">Новое место</h3>
               <input
               id="input-place"
@@ -91,19 +92,19 @@
         <section class="popup popup_type_avatar-edit">
           <div class="popup__container">
             <button class="close-button buttons-hover" type="button"></button>
-              <form class="popup__form" name="avatar" novalidate>
-                <h3 class="popup__title">Обновить аватар</h3>
-                <input
-                id="input-avatar"
-                name="avatar-link"
-                required 
-                type="url" 
-                placeholder="Ссылка на аватар" 
-                class="popup__item popup__item_el_avatar"
-                >
-                <span id="input-avatar-err" class="popup__error-message"></span>
-                <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Сохранить</button>
-              </form>
+            <form class="popup__form" name="avatar" novalidate>
+              <h3 class="popup__title">Обновить аватар</h3>
+              <input
+              id="input-avatar"
+              name="avatar"
+              required 
+              type="url" 
+              placeholder="Ссылка на аватар" 
+              class="popup__item popup__item_el_avatar"
+              >
+              <span id="input-avatar-err" class="popup__error-message"></span>
+              <button class="popup__save-button buttons-hover buttons-hover_type_save" type="submit">Сохранить</button>
+            </form>
           </div>
         </section>
 

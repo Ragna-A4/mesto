@@ -27,8 +27,8 @@ export default class Api {
         .then((res) => this._checkResult(res));
     }
 
-    deleteCard({cardId}) {
-        return fetch(`${this.url}/cards/${cardId}`, {
+    deleteCard({cardID}) {
+        return fetch(`${this.url}/cards/${cardID}`, {
             method: 'DELETE',
             headers: this.headers,
         })
@@ -51,25 +51,25 @@ export default class Api {
         .then((res) => this._checkResult(res));
     }
 
-    patchAvatar({avatar}) {
+    patchAvatar(avatar) {
         return fetch(`${this.url}/users/me/avatar`, {
             method: 'PATCH',
             headers: this.headers,
-            body: JSON.stringify({ avatar }),
+            body: JSON.stringify(avatar),
         })
         .then((res) => this._checkResult(res));
     }
 
-    addLike({cardId}) {
-        return fetch(`${this.url}/cards/likes/${cardId}`, {
+    addLike({cardID}) {
+        return fetch(`${this.url}/cards/likes/${cardID}`, {
             method: 'PUT',
             headers: this.headers,
         })
         .then((res) => this._checkResult(res));
     }
 
-    deleteLike({cardId}) {
-        return fetch(`${this.url}/cards/likes/${cardId}`, {
+    deleteLike({cardID}) {
+        return fetch(`${this.url}/cards/likes/${cardID}`, {
             method: 'DELETE',
             headers: this.headers,
         })
