@@ -22,9 +22,9 @@ export default class Popup {
         document.removeEventListener('keydown', this._handleEscClose);
     }
 
-    submitLoad(loading, buttonText) {
+    submitLoad(isLoading, buttonText) {
         this._buttonText = this._popup.querySelector('.popup__save-button');
-        if(loading) {
+        if(isLoading) {
             this._buttonText.textContent = "Сохранение ..."
         } else {
             this._buttonText.textContent = buttonText;

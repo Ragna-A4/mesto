@@ -34,7 +34,7 @@ const api = new Api({
     url: 'https://mesto.nomoreparties.co/v1/cohort-65',
     headers: {
         authorization: '7c5241b9-77fc-470b-9bc7-1667abece1a2',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
     },
 })
 
@@ -45,11 +45,11 @@ Promise.all([
     api.getCards(),
 ])
   .then((result) => {
-    profile.setUserInfo({name: result[0].name, about: result[0].about});
-    profile.setUserAvatar({avatar: result[0].avatar});
-    userID = result[0]._id;
+    profile.setUserInfo(result[0]);
+    profile.setUserAvatar(result[0]);
+    userID = result[0]['_id'];
 
-    userGallery.renderItems(result[1]);
+    userGallery.renderItems(result[1].reverse());
   })
     .catch((err) => {
         console.log(err);
@@ -77,10 +77,10 @@ function openImagePopup(name, link) {
 cardPopup.setEventListeners();
 // ====================================> форма удаления изображений <==========================
 
-const popupWithConfirmation = new PopupWithConfirmation(popupDeletionConfirm, (cardID, deleteHandler) => {
-    popupWithConfirmation.submitLoad(true, "Да");
+const popupWithConfirmation = new PopupWithConfirmation(popupDeletionConfirm, (trashElement, deleteHandler) => {
+    popupWithConfirmation.submitLoad(true);
     api
-      .deleteCard(cardID._id)
+      .deleteCard(trashElement.id)
       .then(() => {
         deleteHandler();
         popupWithConfirmation.closePopup();
@@ -95,8 +95,8 @@ const popupWithConfirmation = new PopupWithConfirmation(popupDeletionConfirm, (c
 
 popupWithConfirmation.setEventListeners();
 
-function openDeletionConfirm(cardID, deleteHandler) {
-    popupWithConfirmation.openPopup(cardID, deleteHandler);
+function openDeletionConfirm(trashElement, deleteHandler) {
+    popupWithConfirmation.openPopup(trashElement, deleteHandler);
 }
 
 // ====================================> форма добавления изображений <========================
@@ -119,9 +119,10 @@ function addCardElement(data) {
 
 function toggleLikeIcon(thisCard, likeHandler) {
     const likeButton = thisCard.querySelector('.card-button__like');
+
     if (!likeButton.classlist.contains('card-button__like_active')) {
         api
-          .addLike(thisCard._id)
+          .addLike(thisCard.id)
           .then((result) => {
             likeHandler(result.likes.length);
           })
@@ -130,7 +131,7 @@ function toggleLikeIcon(thisCard, likeHandler) {
           });
     } else {
         api
-          .deleteLike(thisCard._id)
+          .deleteLike(thisCard.id)
           then((result) => {
             likeHandler(result.likes.length);
           })
@@ -141,7 +142,7 @@ function toggleLikeIcon(thisCard, likeHandler) {
 }
 
 const galleryForm = new PopupWithForm(popupGalleryAdd, (data) => {
-    galleryForm.submitLoad(true, "Cоздать");
+    galleryForm.submitLoad(true);
     api
       .addCard(data)
       .then((data) => {
@@ -172,7 +173,7 @@ const profile = new UserInfo(
     })
 
 const profileForm = new PopupWithForm(popupProfileEdit, (data) => {
-    profileForm.submitLoad(true, "Cохранить");
+    profileForm.submitLoad(true);
     api
       .patchProfile(data)
       .then((data) => {
@@ -203,7 +204,7 @@ editButton.addEventListener('click', () => {
 
 // ====================================> форма редактирования аватара <======================== 
 const avatarEditForm = new PopupWithForm(popupAvatarEdit, (avatar) => {
-    avatarEditForm.submitLoad(true, "Сохранить");
+    avatarEditForm.submitLoad(true);
     api
       .patchAvatar(avatar)
       .then((avatar) => {
