@@ -49,11 +49,56 @@ Promise.all([
     profile.setUserAvatar(result[0]);
     userID = result[0]['_id'];
 
-    userGallery.renderItems(result[1].reverse());
+    userGallery.renderItems(result[1]);
   })
     .catch((err) => {
         console.log(err);
     })
+
+
+// ====================================> карточки <=============================================
+
+function addCardElement(data) {
+  const cardElement = new Card({
+      data, 
+      templateSelector: '#card', 
+      openPicture: openImagePopup, 
+      openConfirmation: openDeletionConfirm, 
+      toggleLikeHandler: toggleLikeIcon,
+  });
+  return cardElement.getCardElement({
+      cardID: data._id,
+      likesArr: data.likes,
+      authorID: data.owner._id,
+      userID,
+  });
+}
+
+function toggleLikeIcon(thisCard, likeHandler) {
+  const likeButton = thisCard.querySelector('.card-button__like');
+
+  if (!likeButton.classList.contains('card-button__like_active')) {
+      api
+        .addLike(thisCard.id)
+        .then((result) => {
+          console.log(result.likes.length);
+          likeHandler(result.likes.length);
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+  } else {
+      api
+        .deleteLike(thisCard.id)
+        .then((result) => {
+          console.log(result.likes.length);
+          likeHandler(result.likes.length);
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+  }
+}
 
 // ====================================> заполнение галереи <===================================
 
@@ -101,46 +146,6 @@ function openDeletionConfirm(trashElement, deleteHandler) {
 
 // ====================================> форма добавления изображений <========================
 
-function addCardElement(data) {
-    const cardElement = new Card({
-        data, 
-        templateSelector: '#card', 
-        openImagePopup: openImagePopup, 
-        openDeletionConfirm: openDeletionConfirm, 
-        toggleLikeHandler: toggleLikeIcon,
-    });
-    return cardElement.getCardElement({
-        cardID: data._id,
-        likesArr: data.likes,
-        authorID: data.owner._id,
-        userID,
-    });
-}
-
-function toggleLikeIcon(thisCard, likeHandler) {
-    const likeButton = thisCard.querySelector('.card-button__like');
-
-    if (!likeButton.classlist.contains('card-button__like_active')) {
-        api
-          .addLike(thisCard.id)
-          .then((result) => {
-            likeHandler(result.likes.length);
-          })
-          .catch((err) => {
-            console.log(err)
-          });
-    } else {
-        api
-          .deleteLike(thisCard.id)
-          then((result) => {
-            likeHandler(result.likes.length);
-          })
-          .catch((err) => {
-            console.log(err)
-          });
-    }
-}
-
 const galleryForm = new PopupWithForm(popupGalleryAdd, (data) => {
     galleryForm.submitLoad(true);
     api
@@ -153,7 +158,7 @@ const galleryForm = new PopupWithForm(popupGalleryAdd, (data) => {
         console.log(err);
       })
       .finally(() => {
-        galleryForm.submitLoad(true, "Cоздать");
+        galleryForm.submitLoad(false, "Cоздать");
       });
 })
 

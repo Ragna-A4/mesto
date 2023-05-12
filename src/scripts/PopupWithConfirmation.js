@@ -7,7 +7,6 @@ export default class PopupWithConfirmation extends Popup {
         this._form = this._popup.querySelector('.popup__form');
     }
 
-
     openPopup = (trashElement, deleteHandler) => {
         this._trashElement = trashElement;
         this._deleteHandler = deleteHandler;
@@ -15,10 +14,9 @@ export default class PopupWithConfirmation extends Popup {
         super.openPopup();
     }
 
-
     setEventListeners() {
         super.setEventListeners();
-        this._popup.addEventListener('submit', (evt) => {
+        this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this._handleSubmit(this._trashElement, this._deleteHandler);
         });
